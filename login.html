@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        body{
+             background-image: url(https://media.istockphoto.com/photos/happy-waiter-serving-food-to-group-of-friends-in-a-pub-picture-id1307190527?b=1&k=20&m=1307190527&s=170667a&w=0&h=_GZiHqd9mIhvg_tMT-VwIGlPDeZUY6zUorx5XvQM358=);
+        }
+        #box{
+            background-color:  rgb(212, 158, 40);
+            color:rgb(61, 9, 248);
+            border: 6px solid rgb(208, 211, 21);
+            margin: auto;
+            width: 400px;
+            height: 400px;
+            margin-top: 100px;
+            font-size: 30px;
+            padding-left: 30px;
+            border-radius: 10px;
+        }
+        input{
+            font-size: 30px;
+            color: rgb(226, 223, 10);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        button{
+            background-color: rgb(235, 11, 11);
+            color: whitesmoke;
+            font-size: 30px;
+            margin-left: 120px;
+            margin-top: 20px;
+            border-radius: 10px;
+            cursor:pointer;
+
+        }
+        #h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   <h1 id="h1">LogIn-Page</h1> 
+   <div id="box">
+    <label for="">E-mail</label>
+    <input type="email" placeholder="Enter Email" id="email">
+    <label for="">Password</label>
+    <input type="password" placeholder="Enter password" id="pass">
+    <button>Login</button>
+   </div>
+</body>
+</html>
+<script>
+     
+    document.querySelector("button").addEventListener("click",signin);
+    var regUser = JSON.parse(localStorage.getItem("user"));
+     
+    function signin(e){
+       e.preventDefault();
+        let email = document.getElementById("email").value;
+        let pass = document.getElementById("pass").value;
+        for(let i=0;i<regUser.length;i++){
+            
+            if(regUser[i].Email === email && regUser[i].Pass=== pass){
+              alert("siginup Succsessfully")
+              window.location.href = "menu.html"
+            }
+        }
+    }
+</script>
